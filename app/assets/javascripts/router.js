@@ -1,0 +1,3 @@
+Tinytasks.Router.map(function() {
+
+});
