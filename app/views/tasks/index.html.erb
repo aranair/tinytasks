@@ -1,25 +1,44 @@
-<h1>Listing tasks</h1>
+<%# <script type="text/x-handlebars" data-template-name="application"> %>
+<%# <div class="container"> %>
+<%#   <%= render 'shared/header' %1> %>
+<%#   {{ outlet }} %>
+<%#   <%= render 'shared/footer' %1> %>
+<%# </div> %>
+<%# </script> %>
+<%# <script type="text/x-handlebars" data-template-name="tasks"> %>
+<%# <div class="row"> %>
+<%#   <div class="large-4 columns"> %>
+<%#     <h3>List of Tasks:</h3> %>
+<%#     <hr> %>
+<%#     <span class="label alert"> Delayed </span> %>
+<%#     <div class="panel"> %>
+<%#     {{#each task in completedTasks}} %>
+<%#       {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}} %>
+<%#     {{/each}} %>
+<%#     </div> %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%#     <span class="label success"> In Progress </span> %>
+<%#     <div class="panel"> %>
+<%#     {{#each task in activeTasks}} %>
+<%#       {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}} %>
+<%#     {{/each}} %>
+<%#     </div> %>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%#     <span class="label"> Coming Soon </span> %>
+<%#     <div class="panel"> %>
+<%#     {{#each task in comingTasks}} %>
+<%#       {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}} %>
+<%#     {{/each}} %>
+<%#     </div> %>
+<%#   </div> %>
+<%#   <div class="large-8 columns"> %>
+<%#     {{ outlet }} %>
+<%#   </div> %>
+<%# </div> %>
+<%# </script> %>
 
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+<%# <script type="text/x-handlebars" data-template-name="task"> %>
+<%#   <h3>{{ name }}</h3> %>
+<%#   <hr> %>
+<%#   <p>{{ task_details }}</p> %>
+<%# </script> %>

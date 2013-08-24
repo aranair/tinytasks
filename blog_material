@@ -1,0 +1,9 @@
+Since ember has handlebars as dependency, handlebars must be loaded first. Try to swap the order in wich you are loading, e.g.
+1. jquery
+2. handlebars
+3. ember
+in this order there is no problem.
+
+
+When /tasks is visited, Ember calls the App.TasksRoute object, which then finds the list of tasks, and assigns it to App.TasksController.
+Controllers rarely make calls to get data. 

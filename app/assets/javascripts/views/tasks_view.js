@@ -1,3 +1,1 @@
-Tinytasks.TasksView = Ember.View.extend({
-  templateName: 'tasks'
-});
+App.TasksView = Ember.View.extend();

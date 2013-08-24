@@ -1,0 +1,18 @@
+@import "foundation_and_overrides";
+
+$bg: #2284a1;
+$radius: 0px;
+$disabled: false;
+$active: false;
+
+.flat_btn {
+  @include button-base;
+  @include button-size;
+  @include button-style;
+  @include single-transition;
+  @include inset-shadow($active);
+}
+
+.padded {
+  padding:10px;
+}

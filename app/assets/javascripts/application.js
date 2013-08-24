@@ -18,8 +18,7 @@
 //= require ember-data
 //= require_self
 //= require tinytasks
-Tinytasks = Ember.Application.create();
-
 //= require_tree .
+App = Ember.Application.create();
 
 $(function(){ $(document).foundation(); });
