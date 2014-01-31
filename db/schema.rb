@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130804064120) do
+ActiveRecord::Schema.define(version: 20130928142730) do
+
+  create_table "subtasks", force: true do |t|
+    t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.integer  "task_status"
+    t.text     "task_details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -22,7 +34,8 @@ ActiveRecord::Schema.define(version: 20130804064120) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.text     "task_details"
-    t.integer  "status"
+    t.integer  "task_status"
+    t.integer  "parent_task_id"
   end
 
   create_table "users", force: true do |t|

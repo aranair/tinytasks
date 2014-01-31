@@ -5,15 +5,17 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'ember-rails'
-gem 'ember-source', '1.0.0.rc6.3'
+gem "ember-source", "~> 1.3.0"
 # gem 'handlebars-source', '1.0.0.rc4'
+# gem 'ember-source'
 # gem 'emblem-rails'
-gem 'devise'
-gem 'jquery-rails'
-gem 'zurb-foundation'
+gem "devise", "~> 3.1.0"
+gem 'jquery-rails', '~> 2.1'
+gem 'zurb-foundation', "~> 4.3.1"
 gem 'hirb'
 gem "sass-rails", "~> 4.0.0"
 gem 'compass-rails' # you need this or you get an err
+gem 'redcarpet'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 1.0.1'

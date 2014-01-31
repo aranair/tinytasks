@@ -1,0 +1,71 @@
+@import "foundation/variables";
+@import "foundation/components/global";
+@import "foundation/components/panels";
+@import "foundation_and_overrides";
+
+$bg: #2284a1;
+$radius: 0px;
+$disabled: false;
+$active: false;
+
+$delayed_red: #F00;
+$active_green: #00C27C;
+$upcoming_blue: $primary-color;
+$ios_blue: rgb(21, 125, 251);
+
+.flat_btn {
+  @include button-base;
+  @include button-size;
+  @include button-style;
+  @include single-transition;
+  @include inset-shadow($active);
+
+  &.turquoise {
+    $bg: #1AA27B;
+    @include button-style($bg, $radius, $disabled);
+  }
+}
+
+.tasklist-accordion { 
+  // border-right: 1px solid rgb(218, 218, 218);
+}
+
+.tasklist-category-header {
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  font-weight: 300;
+  font-size: $h5-font-size;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+  // @include single-transition;
+
+  &.delayed { color: #F00; }
+  &.active { color: #00C27C; }
+  &.upcoming { color: $upcoming_blue; }
+}
+
+.tasklist_panel {
+  padding-left: 20px;
+  background: #fff;
+  margin-bottom: 0px;
+  margin-left:10px;
+  border-left: 1px solid #e9e9e9;
+
+  a { color: #666; }
+  a:hover { color: #000; }
+  
+  ul li {
+    line-height:1.65em;
+  }
+}
+
+.subtask_panel {
+  padding-top: 15px;
+  display: block;
+  border: 1px solid #e7e7e7;
+  clear: both;
+}
+.subtask_list {
+  list-style-position: inside;
+}

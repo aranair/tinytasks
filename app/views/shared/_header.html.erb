@@ -12,16 +12,20 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <li class="divider"></li>
-      <li class="active"><a href="#/tasks">Main Item 1</a></li>
+      <li class="active"><a href="#">Add Task</a></li>
       <li class="divider"></li>
-      <li><a href="#">Main Item 2</a></li>
+      <li><a href="#">{{ view App.TimeView }}</a></li>
       <li class="divider"></li>
     </ul>
 
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="divider"></li>
-      <li><%= link_to current_user.email, destroy_user_session_path, method: :delete %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to("Logout (#{current_user.email})", destroy_user_session_path, method: :delete) %></li>
+      <% else %>
+        <li><%= link_to('Login', new_user_session_path) %></li>
+      <% end %>
     </ul>
   </section>
 </nav>

@@ -5,8 +5,18 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_user.tasks.all
-    render json: @tasks
+    @tasks = Task.where(user_id: current_user.id).includes(:subtasks).all
+    @subtasks = @tasks.map(&:subtasks).flatten
+    @tasks = @tasks.map do |task|
+      TaskSerializer.new(task, root: false).as_json
+    end
+    @subtasks = @subtasks.map do |task|
+      SubtaskSerializer.new(task, root: false).as_json
+    end
+    render json: {
+      tasks: @tasks,
+      subtasks: @subtasks
+    }
   end
 
   # GET /tasks/1
@@ -72,6 +82,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :task_details)
+      params.require(:task).permit(:name, :task_details, :start_date, :end_date, :task_status, :ids)
     end
 end

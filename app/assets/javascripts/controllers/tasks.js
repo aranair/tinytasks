@@ -1,25 +1,14 @@
 App.TasksController = Ember.ArrayController.extend({
-
-  // hasCompleted: function () {
-  //   return this.get('isCompleted') > 0;
-  // }.property('@each.isCompleted'),
-
-  // completed: function () {
-  //   return this.filterProperty('isCompleted', true).get('length');
-  // }.property('@each.isCompleted'),
-
   activeTasks: function() {
-    return this.filterProperty('isCompleted', false);
-  }.property('@each.isCompleted'),
+    return this.get('content').filterProperty('isDelayed', false);
+  }.property('@each.isDelayed'),
 
   delayedTasks: function() {
-    return this.filterProperty('isCompleted', true);
-  }.property('@each.isCompleted'),
+    return this.get('content').filterProperty('isDelayed', true);
+  }.property('@each.isDelayed'),
 
-  comingTasks: function() {
-    return this
-    // return this.filterProperty('start
-  }.property('@each.isCompleted')
-
+  upcomingTasks: function() {
+    return this.filterProperty('isUpcoming', true);
+  }.property('@each.isUpcoming')
 });
 

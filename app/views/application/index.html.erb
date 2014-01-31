@@ -1,35 +1,13 @@
 <script type="text/x-handlebars" data-template-name="application">
-<div class="container">
   <%= render 'shared/header' %>
   {{ outlet }}
   <%= render 'shared/footer' %>
-</div>
 </script>
+
 <script type="text/x-handlebars" data-template-name="tasks">
 <div class="row">
   <div class="large-4 columns">
-    <h3>List of Tasks:</h3>
-    <hr>
-    <div class="label alert padded"> Delayed ({{delayedTasks.length}}) </div> 
-    <div class="panel">
-    {{#each task in delayedTasks}}
-      {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}}
-    {{/each}}
-    </div>
-
-    <span class="label success"> In Progress </span>
-    <div class="panel">
-    {{#each task in activeTasks}}
-      {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}}
-    {{/each}}
-    </div>
-
-    <span class="label"> Coming Soon </span>
-    <div class="panel">
-    {{#each task in comingTasks}}
-      {{#linkTo 'task' task}} <p>{{task.name}}</p> {{/linkTo}}
-    {{/each}}
-    </div>
+    {{ partial 'tasklist-accordion' }}
   </div>
   <div class="large-8 columns">
     {{ outlet }}
@@ -37,19 +15,33 @@
 </div>
 </script>
 
-<script type="text/x-handlebars" id="task/_edit">
-  <p>{{view Ember.TextField valueBinding='name'}}</p>
-  <p>{{view Ember.TextArea valueBinding='task_details'}}</p>
-</script>
+<%= render 'tasklist_accordion' %>
+
+<%= render 'taskedit' %>
 
 <script type="text/x-handlebars" data-template-name="task">
-  <h3>{{ name }}</h3>
-  <hr>
-  <p>{{ task_details }}</p>
   {{#if isEditing}}
     {{partial 'task/edit'}}
-    <button class='flat_btn medium' {{action 'doneEditing'}}>Save Task</button>
   {{else}}
-    <button class='flat_btn medium' {{action 'edit'}}>Edit Task</button>
+    <div class="task-details">
+      <h3>{{name}}</h3>
+      <p>{{start_date}} &rarr; {{end_date}}</p>
+      {{#if task_completed}}
+        <p class="task_complete_text">Task Completed</p>
+      {{else}}
+        <p class="task_incomplete_text">Task Incomplete</p>
+      {{/if}}
+
+      <p>{{task_details}}</p>
+      <h4> Subtasks </h4>
+      <p>
+        <ol class="subtask_list">
+          {{#each subtask in subtasks}}
+            <li>{{subtask.name}} - {{subtask.task_details}}</li>
+          {{/each}}
+        </ol>
+      </p>
+    </div>
+    <button class='flat_btn small' {{action 'editTask'}}>Edit Task</button>
   {{/if}}
 </script>

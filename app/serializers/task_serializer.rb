@@ -1,7 +1,13 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :name, :task_details, :start_date, :end_date, :estimate, :created_at, :updated_at, :is_completed
+  embed :ids
+  attributes :id, :name, :task_details, :start_date, :end_date, :estimate, :created_at, :updated_at, :task_status, :subtasks
 
-  def is_completed
-    object.status == 1
+  private 
+
+  def attributes
+    hash = super
+    # p hash[:subtasks].map(&:id)
+    hash[:subtasks] = hash[:subtasks].map(&:id)
+    hash
   end
 end

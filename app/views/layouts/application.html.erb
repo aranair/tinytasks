@@ -12,11 +12,17 @@
 
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%# <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.css" /> %>
+    <%# <script src="http://code.jquery.com/jquery-1.9.1.js"></script> %>
+    <%# <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,800,300' rel='stylesheet' type='text/css'> %>
+    <%# <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> %>
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "tinytasks" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%# <script src="http://code.jquery.com/jquery.min.js"></script> %>
+    <%# <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> %>
     <%= csrf_meta_tags %>
   </head>
 

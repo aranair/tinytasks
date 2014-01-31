@@ -1,0 +1,41 @@
+<script type="text/x-handlebars" data-template-name="_tasklist-accordion">
+  <h3>Task List</h3>
+  <div class="tasklist-accordion" data-section="accordion">
+    <section>
+      <a href="#accordion-delayedTasks" data-section-title> 
+        <div class="delayed tasklist-category-header">Delayed - {{delayedTasks.length}} </div> 
+      </a>
+      <div class="tasklist_panel" data-slug="accordion-delayedTasks" data-section-content>
+        <ul class="no-bullet"> 
+          {{#each task in delayedTasks}}
+              <li>{{#link-to 'task' task}} {{task.shortName}} {{/link-to}}</li>      
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+    <section>
+      <a href="#accordion-activeTasks" data-section-title> 
+        <div class="active tasklist-category-header"> In Progress - {{activeTasks.length}} </div> 
+      </a>
+      <div class="tasklist_panel" data-slug="accordion-activeTasks" data-section-content>
+        <ul class="no-bullet"> 
+          {{#each task in activeTasks}}
+              <li>{{#link-to 'task' task}} {{task.shortName}} {{/link-to}}</li>      
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+    <section>
+      <a href="#accordion-upcomingTasks" data-section-title> 
+        <div class="upcoming tasklist-category-header"> Upcoming - {{upcomingTasks.length}}</div> 
+      </a>
+      <div class="tasklist_panel" data-slug="accordion-upcomingTasks" data-section-content>
+        <ul class="no-bullet"> 
+          {{#each task in upcomingTasks}}
+              <li>{{#link-to 'task' task}} {{task.shortName}} {{/link-to}}</li>      
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+  </div>
+</script>

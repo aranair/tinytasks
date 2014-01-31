@@ -16,9 +16,20 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require showdown
+//= require moment.min
 //= require_self
 //= require tinytasks
-//= require_tree .
 App = Ember.Application.create();
 
-$(function(){ $(document).foundation(); });
+//= require_tree .
+
+
+$(function() { 
+  $(document).foundation(); 
+  var token;
+  token = $('meta[name="csrf-token"]').attr('content');
+  return $.ajaxPrefilter(function(options, originalOptions, xhr) {
+    return xhr.setRequestHeader('X-CSRF-Token', token);
+  });
+});
