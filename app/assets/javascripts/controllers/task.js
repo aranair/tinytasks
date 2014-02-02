@@ -1,6 +1,7 @@
 App.TaskController = Ember.ObjectController.extend({
   isEditing: false,
-  all_task_status: [ { label: 'Incomplete', id: '0'}, { label: 'Complete', id: '0'}, { label: 'Unsure', id: '2'}],
+  selected_status: null,
+  all_task_status: [ { label: 'Incomplete', id: 0}, { label: 'Complete', id: 1 }, { label: 'Unsure', id: 2 } ],
 
   actions: {
     editTask: function() {

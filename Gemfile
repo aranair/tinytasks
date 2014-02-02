@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -11,11 +11,13 @@ gem "ember-source", "~> 1.3.0"
 # gem 'emblem-rails'
 gem "devise", "~> 3.1.0"
 gem 'jquery-rails', '~> 2.1'
-gem 'zurb-foundation', "~> 4.3.1"
+# gem 'zurb-foundation', "~> 4.3.1"
+gem 'foundation-rails', "~>5.0.3.1"
 gem 'hirb'
 gem "sass-rails", "~> 4.0.0"
 gem 'compass-rails' # you need this or you get an err
 gem 'redcarpet'
+gem "pikaday-gem", "~> 1.1.0.0"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 1.0.1'

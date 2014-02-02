@@ -12,16 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require foundation
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require showdown
 //= require moment.min
+//= require pikaday
 //= require_self
 //= require tinytasks
 App = Ember.Application.create();
-
 //= require_tree .
 
 

@@ -10,8 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require_pikaday
  *= require_tree ./jqueryui
  *= require foundation_and_overrides
+ *= require foundation_mixins_only
  */
-// @import "foundation_and_overrides";
-// @import "foundation";

@@ -5,35 +5,39 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="tasks">
-<div class="row">
-  <div class="large-4 columns">
-    {{ partial 'tasklist-accordion' }}
+  <div class="row full-width ancestor-container">
+    <div class="large-2 columns">
+      {{ partial 'tasklist-accordion' }}
+    </div>
+    <div class="large-6 columns">
+      {{ outlet }}
+    </div>
+    <div class="large-3 columns end">
+      <h3>Statistics</h3>
+    </div>
   </div>
-  <div class="large-8 columns">
-    {{ outlet }}
-  </div>
-</div>
 </script>
 
 <%= render 'tasklist_accordion' %>
-
 <%= render 'taskedit' %>
 
 <script type="text/x-handlebars" data-template-name="task">
   {{#if isEditing}}
-    {{partial 'task/edit'}}
+    <div class="task-edit">
+      {{partial 'task/edit'}}
+    </div>
   {{else}}
     <div class="task-details">
       <h3>{{name}}</h3>
       <p>{{start_date}} &rarr; {{end_date}}</p>
       {{#if task_completed}}
-        <p class="task_complete_text">Task Completed</p>
+      <p class="task_complete_text">Task Completed</p>
       {{else}}
-        <p class="task_incomplete_text">Task Incomplete</p>
+      <p class="task_incomplete_text">Task Incomplete</p>
       {{/if}}
 
       <p>{{task_details}}</p>
-      <h4> Subtasks </h4>
+      <h3> Subtasks </h3>
       <p>
         <ol class="subtask_list">
           {{#each subtask in subtasks}}

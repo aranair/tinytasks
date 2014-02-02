@@ -1,35 +1,71 @@
 <script type="text/x-handlebars" id="task/edit">
-  <div class="task-edit">
-    <div class="row">
-      <h3> Task Details </h3>
-      <div class="large-12 columns">
-        {{view Ember.TextField valueBinding='name'}}
-      </div>
-      <div class="large-4 columns"> 
-        {{view App.DateField valueBinding='start_date' classNames="gtask-edit-startdate"}} 
-      </div>
-      <div class="large-1 columns"><p>&rarr;</p></div>
-      <div class="large-4 columns end"> {{view App.DateField valueBinding='end_date' classNames="gtask-edit-enddate"}} </div>
-      <div class="large-3 columns">
-        {{view Ember.Select 
-            contentBinding="all_task_status"
-            valueBinding="model.task_status"
-            optionLabelPath="content.label"
-            optionValuePath="content.id"
-        }}
-      </div>
-      <div class="large-12 columns">{{view Ember.TextArea valueBinding='task_details' classNames="task-edit-task_details"}}</div>
-      <div class="large-5 columns">
-        <button class="flat_btn small" {{action "cancelEdit"}}>Cancel</button>
-        <button class='flat_btn turquoise small' {{action 'doneEditing'}}>Save Task</button>
-      </div>
-      <div class="large-3 large-offset-4 columns">
-        <a href="#" {{action "removeTask"}}>Delete Task</a>
+  <div class="row">
+    <h3>Main Task</h3>
+    <div class="large-8 columns">
+      <div class="row collapse">
+        <div class="small-3 large-3 columns">
+          <span class="prefix">Title</span>
+        </div>
+        <div class="small-9 large-9 columns">
+          {{view Ember.TextField valueBinding='name'}}
+        </div>
       </div>
     </div>
-    <div class="row">
-      <h3> Subtasks </h3>
-      <div class="large-10 large-offset-1 columns">
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <div class="small-3 large-4 columns">
+          <span class="prefix">Status</span>
+        </div>
+        <div class="small-9 large-8 columns">
+          {{view Ember.Select 
+              contentBinding="all_task_status"
+              optionLabelPath="content.label"
+              optionValuePath="content.id"
+              valueBinding="model.task_status"
+              selectionBinding="selected_status"
+              id="customform-selectbox"
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-6 large-6 columns">
+      <div class="row collapse">
+        <div class="small-4 medium-4 large-4 columns">
+          <span class="prefix">Start Date</span>
+        </div>
+        <div class="small-8 medium-8 large-8 columns">
+          {{view App.DateField valueBinding='start_date' classNames="gtask-edit-startdate"}} 
+        </div>
+      </div>
+    </div>
+    <div class="medium-6 large-6 columns">
+      <div class="row collapse">
+        <div class="small-4 medium-4 large-4 columns">
+          <span class="prefix">End Date</span>
+        </div>
+        <div class="small-8 medium-8 large-8 columns end">
+          {{view App.DateField valueBinding='end_date' classNames="gtask-edit-enddate"}} 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 large-12 columns">
+      {{view Ember.TextArea valueBinding='task_details' classNames="task-edit-task-details"}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <button class="flat_btn tiny" {{action "cancelEdit"}}>Cancel</button>
+      <button class='flat_btn turquoise tiny' {{action 'doneEditing'}}>Save Task</button>
+      <button class="right flat_btn red tiny" href="#" {{action "removeTask"}}>Delete Task</button>
+    </div>
+  </div>
+  <div class="row">
+    <h3> Subtasks </h3>
+    <div class="large-10 large-offset-1 columns">
       {{#each subtask in subtasks}}
       <div class="row subtask_panel">
         <div class="large-12 columns">{{view Ember.TextField valueBinding='subtask.name'}}</div>
@@ -40,7 +76,6 @@
       </div>
       </br>
       {{/each}}
-      </div>
     </div>
   </div>
 </script>
