@@ -18,16 +18,13 @@ App.Task = DS.Model.extend({
 
   isDelayed: function() {
     var today = new Date();
-    var end_date = new Date(this.get('end_date'));
-    return end_date > today && this.get('task_status') == 1
-  }.property('end_date', 'task_status'),
+    return (new Date(this.get('start_date'))) < today && (new Date(this.get('end_date'))) > today && this.get('task_status') == 0
+  }.property('start_date', 'end_date', 'task_status'),
   
   isUpcoming: function() {
     var today = new Date();
-    var end_date = new Date(this.get('end_date'));
-    var start_date = new Date(this.get('start_date'));
-    return start_date > today && end_date > today && this.get('task_status') == 1
-  }.property('end_date', 'task_status'),
+    return (new Date(this.get('start_date'))) > today && (new Date(this.get('end_date'))) > today && this.get('task_status') == 0
+  }.property('start_date', 'end_date', 'task_status'),
 
   task_completed: function () {
     return this.get('task_status') == 1

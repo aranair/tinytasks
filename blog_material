@@ -7,3 +7,26 @@ in this order there is no problem.
 
 When /tasks is visited, Ember calls the App.TasksRoute object, which then finds the list of tasks, and assigns it to App.TasksController.
 Controllers rarely make calls to get data. 
+
+
+
+--------
+
+In computed properties: if you assign another calculated variable inside the computed property function, they do not automatically listen
+to the changes to the model (only initiated once unless you put it into the same statement as the "return" to force it to reinit the object.
+
+
+  isDelayed: function() {
+    var today = new Date();
+    var start_date = new Date(this.get('start_date'));
+    var end_date = new Date(this.get('end_date'));
+    return start_date < today && end_date > today && this.get('task_status') == 0
+  }.property('start_date', 'end_date', 'task_status'),
+
+  vs
+
+  isDelayed: function() {
+    var today = new Date();
+    return (new Date(this.get('start_date'))) < today && (new Date(this.get('end_date'))) > today && this.get('task_status') == 0
+  }.property('start_date', 'end_date', 'task_status'),
+    

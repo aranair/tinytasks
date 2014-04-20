@@ -1,4 +1,5 @@
 <script type="text/x-handlebars" id="task/edit">
+  <div class="task-edit">
   <div class="row">
     <h3>Main Task</h3>
     <div class="large-8 columns">
@@ -58,8 +59,8 @@
   </div>
   <div class="row">
     <div class="large-12 columns">
-      <button class="flat_btn tiny" {{action "cancelEdit"}}>Cancel</button>
-      <button class='flat_btn turquoise tiny' {{action 'doneEditing'}}>Save Task</button>
+      <button class="flat_btn tiny" {{action "goBack"}}>Cancel</button>
+      <button class='flat_btn turquoise tiny' {{action 'save'}}>Save Task</button>
       <button class="right flat_btn red tiny" href="#" {{action "removeTask"}}>Delete Task</button>
     </div>
   </div>
@@ -77,5 +78,6 @@
       </br>
       {{/each}}
     </div>
+  </div>
   </div>
 </script>

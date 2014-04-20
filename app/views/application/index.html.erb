@@ -4,6 +4,14 @@
   <%= render 'shared/footer' %>
 </script>
 
+<script type="text/x-handlebars" data-template-name="tasks/index">
+  <div class="row">
+    <div class="tasks-instructions small-12">
+      <h3>Choose a task from the left or {{#link-to 'tasks.new'}} create a new one{{/link-to}}.</h3>
+    </div>
+  </div>
+</script>
+
 <script type="text/x-handlebars" data-template-name="tasks">
   <div class="row full-width ancestor-container">
     <div class="large-2 columns">
@@ -22,11 +30,6 @@
 <%= render 'taskedit' %>
 
 <script type="text/x-handlebars" data-template-name="task">
-  {{#if isEditing}}
-    <div class="task-edit">
-      {{partial 'task/edit'}}
-    </div>
-  {{else}}
     <div class="task-details">
       <h3>{{name}}</h3>
       <p>{{start_date}} &rarr; {{end_date}}</p>
@@ -46,6 +49,6 @@
         </ol>
       </p>
     </div>
-    <button class='flat_btn small' {{action 'editTask'}}>Edit Task</button>
-  {{/if}}
+    <button class='flat_btn small' {{action 'edit'}}>Edit Task</button>
+  {{outlet}}
 </script>

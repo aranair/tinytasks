@@ -1,20 +1,13 @@
+// Somehow needs to re-render this, taskroute is a resource and acts as a parent for its nested routes
+// so technically taskindex is what you want
+App.TaskIndexRoute = Ember.Route.extend({
+   renderTemplate: function () {
+      this.render('task', { into: 'tasks' });
+   }
+});
+
 App.TaskRoute = Em.Route.extend({
-  // model: function(params) {
-  //   return this.get('store').find('task', params.task_id)
-  // },
-  setupController: function(controller, task) {
-    controller.set('model', task);
-  }
-});
-
-App.TasksRoute = Em.Route.extend({
-  model: function() {
-    return this.get('store').find('task');
-  }
-});
-
-App.TasksIndexRoute = Ember.Route.extend({
-  model: function() {
-    return this.get('store').find('task');
+  model: function(params) {
+    return this.store.find('task', params.task_id)
   }
 });

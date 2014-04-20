@@ -1,38 +1,33 @@
-App.TaskController = Ember.ObjectController.extend({
-  isEditing: false,
+App.TaskEditController = Em.ObjectController.extend({
   selected_status: null,
   all_task_status: [ { label: 'Incomplete', id: 0}, { label: 'Complete', id: 1 }, { label: 'Unsure', id: 2 } ],
 
   actions: {
-    editTask: function() {
-      this.toggleProperty('isEditing')
-    },
-
-    doneEditing: function() {
-      task = this.get('model');
-
+    save: function(){
+      var task = this.get('model');
       task.save().then(function() {
         task._data.subtasks.invoke('save');
       }, function() {
         task.rollback();
       });
-
-      this.toggleProperty('isEditing')
+      this.transitionToRoute('task', task);
     },
-
-    cancelEdit: function() {
-      model = this.get('model');
-      if(model && model.get('isDirty')) {
-        model.rollback();
-      }
-      this.toggleProperty('isEditing')
-    },
-
     removeTask: function () {
       var task = this.get('model');
       task.deleteRecord();
       task.save();
-      this.toggleProperty('isEditing')
+      this.transitionToRoute('tasks');
+    },
+    goBack: function() {
+      this.transitionToRoute('task');
+    }
+  }
+});
+
+App.TaskController = Ember.ObjectController.extend({
+  actions: {
+    edit: function(){
+      this.transitionToRoute('task.edit');
     },
 
     isCompleted: function(key, value){

@@ -22,7 +22,9 @@
 //= require pikaday
 //= require_self
 //= require tinytasks
-App = Ember.Application.create();
+App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 //= require_tree .
 
 
