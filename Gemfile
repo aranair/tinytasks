@@ -14,7 +14,6 @@ gem 'jquery-rails', '~> 2.1'
 # gem 'zurb-foundation', "~> 4.3.1"
 gem 'foundation-rails', "~>5.0.3.1"
 gem 'hirb'
-gem "sass-rails", "~> 4.0.0"
 gem 'compass-rails' # you need this or you get an err
 gem 'redcarpet'
 gem "pikaday-gem", "~> 1.1.0.0"
@@ -27,7 +26,11 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
+group :assets do
+  gem 'therubyracer'
+  gem "sass-rails", "~> 4.0.0"
+  gem 'uglifier'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
