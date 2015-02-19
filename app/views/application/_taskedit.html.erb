@@ -64,20 +64,5 @@
       <button class="right flat_btn red tiny" href="#" {{action "removeTask"}}>Delete Task</button>
     </div>
   </div>
-  <div class="row">
-    <h3> Subtasks </h3>
-    <div class="large-10 large-offset-1 columns">
-      {{#each subtask in subtasks}}
-      <div class="row subtask_panel">
-        <div class="large-12 columns">{{view Ember.TextField valueBinding='subtask.name'}}</div>
-        <div class="large-12 columns">{{view Ember.TextField valueBinding='subtask.task_details'}}</div>
-        <div class="large-12 columns">
-          <label> Completed? {{view Ember.Checkbox checkedBinding="subtask.task_status"}} </label>
-        </div>
-      </div>
-      <br>
-      {{/each}}
-    </div>
-  </div>
-  </div>
+</div>
 </script>

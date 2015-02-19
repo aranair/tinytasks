@@ -10,11 +10,7 @@ App.TaskEditController = Em.ObjectController.extend({
   actions: {
     save: function(){
       var task = this.get('model');
-      task.save().then(function() {
-        task._data.subtasks.invoke('save');
-      }, function() {
-        task.rollback();
-      });
+      task.save();
       this.transitionToRoute('task', task);
     },
     removeTask: function () {
