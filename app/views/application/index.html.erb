@@ -22,23 +22,20 @@
     </div>
     <div class="large-3 columns end">
       <h3>Statistics</h3>
+      {{ partial 'statistics'}}
     </div>
   </div>
 </script>
 
 <%= render 'tasklist_accordion' %>
 <%= render 'taskedit' %>
+<%= render 'statistics' %>
 
 <script type="text/x-handlebars" data-template-name="task">
     <div class="task-details">
       <h3>{{name}}</h3>
       <p>{{start_date}} &rarr; {{end_date}}</p>
-      {{#if task_completed}}
-      <p class="task_complete_text">Task Completed</p>
-      {{else}}
-      <p class="task_incomplete_text">Task Incomplete</p>
-      {{/if}}
-
+      <p class ="task_status_text">Task {{taskStatus}}</p>
       <p>{{task_details}}</p>
       <h3> Subtasks </h3>
       <p>

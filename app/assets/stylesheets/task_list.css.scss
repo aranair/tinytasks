@@ -73,6 +73,11 @@ $ios_blue: rgb(21, 125, 251);
   ul li {
     line-height:1.65em;
   }
+
+  li.tasklist_panel--task-delayed > a{
+    color: red;
+    text-decoration: underline;
+  }
 }
 
 .subtask_panel {

@@ -1,6 +1,11 @@
 App.TasksNewController = Ember.ObjectController.extend({
   selected_status: null,
-  all_task_status: [ { label: 'Incomplete', id: 0}, { label: 'Complete', id: 1 }, { label: 'Unsure', id: 2 } ],
+  all_task_status: [ 
+    { label: 'Untouched', id: -1 }, // Not started
+    { label: 'Ongoing', id: 0 }, // Started by not complete
+    { label: 'Complete', id: 1 },  // Started and complete
+    { label: 'Unsure', id: 2 }  // ?!
+  ],
 
   actions: {
     save: function() {
@@ -24,15 +29,16 @@ App.TasksNewController = Ember.ObjectController.extend({
 
 App.TasksController = Ember.ArrayController.extend({
   activeTasks: function() {
-    return this.get('content').filterProperty('isDelayed', false);
-  }.property('@each.isDelayed'),
+    return this.get('content').filterProperty('isActive', true);
+  }.property('@each.isActive'),
 
-  delayedTasks: function() {
-    return this.get('content').filterProperty('isDelayed', true);
-  }.property('@each.isDelayed'),
+  completedTasks: function() {
+    return this.get('content').filterProperty('task_status', 1);
+  }.property('@each.task_status'),
 
   upcomingTasks: function() {
     return this.filterProperty('isUpcoming', true);
-  }.property('@each.isUpcoming')
+  }.property('@each.isUpcoming'),
+
 });
 

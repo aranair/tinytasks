@@ -16,14 +16,32 @@ App.Task = DS.Model.extend({
     }
   }.property('name'),
 
-  isDelayed: function() {
-    var today = new Date();
-    return (new Date(this.get('start_date'))) < today && (new Date(this.get('end_date'))) > today && this.get('task_status') == 0
+  taskStatus: function() {
+    if (this.isDelayed) {
+      return "Delayed";
+    } else if (this.isActive) {
+      return "Ongoing"
+    } else if (this.isUpcoming) {
+      return "Scheduled"
+    }
   }.property('start_date', 'end_date', 'task_status'),
   
+  // Delayed: Not completed before today.
+  isDelayed: function() {
+    var today = new Date();
+    return (new Date(this.get('end_date')) < today) && this.get('task_status') != 1
+  }.property('start_date', 'end_date', 'task_status'),
+
+  // Active: 
+  isActive: function() {
+    var today = new Date();
+    return this.get('task_status') == 0
+  }.property('start_date', 'end_date', 'task_status'),
+  
+  // Upcoming: start date is in the future, end date is in the future, status: not started
   isUpcoming: function() {
     var today = new Date();
-    return (new Date(this.get('start_date'))) > today && (new Date(this.get('end_date'))) > today && this.get('task_status') == 0
+    return (new Date(this.get('start_date'))) > today && (new Date(this.get('end_date'))) > today && this.get('task_status') == -1
   }.property('start_date', 'end_date', 'task_status'),
 
   task_completed: function () {

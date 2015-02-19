@@ -4,9 +4,20 @@
     <meta charset="utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+window.EmberENV = {
+      FEATURES: {
+        'ember-htmlbars': true,
+        'ember-htmlbars-block-params': true,
+        'ember-htmlbars-attribute-syntax':true,
+        'ember-htmlbars-inline-if-helper':true
+      }
+    };
+  </script>
     <%# <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" /> %>
     <%# <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,800,300' rel='stylesheet' type='text/css'> %>
     <%# <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> %>
+    <script src="http://builds.emberjs.com/tags/v1.10.0/ember-template-compiler.js"></script>
   	<title><%= content_for?(:title) ? yield(:title) : "tinytasks" %></title>
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/modernizr" %>

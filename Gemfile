@@ -2,11 +2,11 @@ source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'railties', '4.0.0'
 
 gem 'pg'
 gem 'ember-rails'
-gem "ember-source", "~> 1.3.0"
-# gem 'handlebars-source', '1.0.0.rc4'
+gem "ember-source", "~> 1.10.0"
 # gem 'ember-source'
 # gem 'emblem-rails'
 gem "devise", "~> 3.1.0"

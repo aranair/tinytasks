@@ -1,0 +1,12 @@
+<section>
+<a href="#" data-section-title> 
+  <div class="delayed tasklist-category-header">Delayed - {{delayedTasks.length}} </div> 
+</a>
+<div class="tasklist_panel" data-slug="accordion-delayedTasks" data-section-content>
+  <ul class="no-bullet"> 
+    {{#each task in delayedTasks}}
+    <li>{{#link-to 'task' task}} {{task.shortName}} {{/link-to}}</li>      
+    {{/each}}
+  </ul>
+</div>
+</section>
