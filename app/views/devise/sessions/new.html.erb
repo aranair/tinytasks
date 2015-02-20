@@ -1,20 +1,21 @@
 <div class="row">
   <div class="panel large-6 large-offset-3 columns">
     <h2>Sign in</h2>
+    <br>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div><%= f.label :email %><br />
+      <div><%= f.label :email %>
       <%= f.email_field :email, :autofocus => true %></div>
 
-      <div><%= f.label :password %><br />
+      <div><%= f.label :password %>
       <%= f.password_field :password %></div>
 
       <% if devise_mapping.rememberable? -%>
         <div><%= f.check_box :remember_me %><%= f.label :remember_me %></div>
       <% end -%>
 
-      <div><%= f.submit "Sign in" %></div>
-      (use test@tinytasks.com, password)
+      <div><%= f.submit "Sign in", class: 'flat_btn turqoise tiny'%></div>
+      (For testing purposes use: test@tinytasks.com, password)
     <% end %>
 
     <%= render "devise/shared/links" %>
