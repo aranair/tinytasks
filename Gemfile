@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -11,7 +10,8 @@ gem "ember-source", "~> 1.10.0"
 # gem 'ember-source'
 # gem 'emblem-rails'
 gem "devise", "~> 3.1.0"
-gem 'jquery-rails', '~> 2.1'
+gem 'jquery-rails', '3.1.2'
+gem 'jquery-ui-rails'
 # gem 'zurb-foundation', "~> 4.3.1"
 gem 'foundation-rails', "~>5.0.3.1"
 gem 'hirb'
