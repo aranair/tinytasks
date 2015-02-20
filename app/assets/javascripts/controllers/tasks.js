@@ -9,13 +9,15 @@ App.TasksNewController = Ember.ObjectController.extend({
 
   actions: {
     save: function() {
-      var newTask = this.store.createRecord('task', this.get('model'));
-      newTask.save();
-      this.transitionToRoute('task', newTask);
+      var task = this.get('model');
+      var self = this;
+      task.save().then(function(model) {
+        self.transitionToRoute('task', model)
+      });
     },
 
     cancelEdit: function() {
-      model = this.get('model');
+      var model = this.get('model');
       if(model && model.get('isDirty')) {
         model.rollback();
       }

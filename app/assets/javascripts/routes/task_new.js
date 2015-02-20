@@ -1,6 +1,7 @@
 App.TasksNewRoute = App.TaskCreateAndEditRoute.extend({
   model: function(){
-    return Em.Object.create({});
+    return this.store.createRecord('task');
+    // return Em.Object.create({});
   },
   // in this case (the create route) we can re-use the user/edit template
   // associated with the usersCreateController
