@@ -24,6 +24,7 @@ App.TasksNewController = Ember.ObjectController.extend({
     },
 
     goBack: function() {
+      this.get('model').destroyRecord();
       this.transitionToRoute('tasks');
     }
   }
